@@ -12,5 +12,10 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	// MANAGER
 	@Query(value = "SELECT * FROM clientes WHERE id_cliente = ?1", nativeQuery = true)
 	public Cliente findClienteByIdCliente(String idCliente);
+/*
+	// RESTRINGIDO
+	@Query(value = "SELECT * FROM clientes WHERE id_cliente = ?1", nativeQuery = true)
+	public Cliente findClienteRestringido(String idCliente);
+*/
 
 }
