@@ -16,9 +16,9 @@ GET info_client_manager/_search
   }
 }
 #### Validador
-usuario validador: ENM
-password: nkdk3Cs
-Consulta:
+usuario validador: ENM \
+password: nkdk3Cs \
+Consulta: \
 GET info_client_validador/_search
 {
   "query": {
@@ -28,9 +28,9 @@ GET info_client_validador/_search
   }
 }
 
-##### Restringido
-usuario restringido: RaVen_1
-password: pass123
+##### Restringido \
+usuario restringido: RaVen_1 \
+password: pass123 \
 GET info_client_restringido/_search
 {
   "query": {
