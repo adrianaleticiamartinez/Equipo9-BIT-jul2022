@@ -4,9 +4,9 @@ La instancia basada en la nube de Elasticsearch es la siguiente:
 
 https://bbva-hackathon.kb.us-central1.gcp.cloud.es.io:9243/
 #### Manager
-usuario manager: AndArt 
-password: qwerty
-Consulta:
+usuario manager: AndArt \
+password: qwerty \
+Consulta: \
 GET info_client_manager/_search
 {
   "query": {
