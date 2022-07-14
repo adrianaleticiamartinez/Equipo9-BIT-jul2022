@@ -28,7 +28,7 @@ GET info_client_validador/_search
   }
 }
 
-##### Restringido \
+##### Restringido 
 usuario restringido: RaVen_1 \
 password: pass123 \
 GET info_client_restringido/_search
