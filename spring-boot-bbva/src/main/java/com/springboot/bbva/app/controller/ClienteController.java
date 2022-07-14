@@ -38,16 +38,28 @@ public class ClienteController {
 			if(nuevoUsuario.getAuth().equals(usuario.getAuth())) {
 				if(nuevoUsuario.getPerfil().equals("Manager")) {
 					cliente = clienteRepository.findClienteByIdCliente(idCliente);
-					return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+					if(cliente != null) {
+						return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+					} else {
+						respuesta.put("mensaje", "El cliente no existe!");
+						return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+					}
 				} else if(nuevoUsuario.getPerfil().equals("Restringido")) {
 					cliente = clienteRepository.findClienteByIdCliente(idCliente);
-					Restringido restringido = new Restringido();
-					restringido.setIdCliente(cliente.getIdCliente());
-					restringido.setNombre(cliente.getNombre());
-					restringido.setCuenta(cliente.getCuenta());
-					restringido.setSegmento(cliente.getSegmento());
-					restringido.setSexo(cliente.getSexo());
-					return new ResponseEntity<Restringido>(restringido, HttpStatus.OK);
+					if(cliente != null) {
+						Restringido restringido = new Restringido();
+						restringido.setIdCliente(cliente.getIdCliente());
+						restringido.setNombre(cliente.getNombre());
+						restringido.setCuenta(cliente.getCuenta());
+						restringido.setSegmento(cliente.getSegmento());
+						restringido.setSexo(cliente.getSexo());
+						return new ResponseEntity<Restringido>(restringido, HttpStatus.OK);
+					} else {
+						respuesta.put("mensaje", "El cliente no existe");
+						return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+					}
+				} else if(nuevoUsuario.getPerfil().equals("Validador")) {
+					// Aplica logica de validador
 				}
 			} else {
 				respuesta.put("mensaje", "El usuario o contraseña son incorrectos");
