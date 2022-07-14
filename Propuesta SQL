@@ -1,0 +1,47 @@
+SQL PROPUESTA 
+
+--SENTENCIA SQL Si el perfil del usuario es MANAGER
+SELECT
+idCliente, 
+nombre, 
+apellidoPaterno, 
+apellidoMaterno, 
+fechaNacimiento, 
+sexo, 
+segmento, 
+nacionalidad,
+rfc, 
+tipoID,
+numeroID,
+cuenta,
+email,
+TDD
+FROM BDClientes.clientes WHERE idCliente = Var_cliente
+
+--SENTENCIA SQL Si el perfil del usuario es VALIDADOR
+SELECT
+idCliente, 
+nombre, 
+CONCAT(LEFT(apellidoPaterno,3),  REPEAT('*', LEN(TRIM(apellidoPaterno)-3)))
+CONCAT(LEFT(apellidoMaterno,3), REPEAT('*', LEN(TRIM(apellidoMaterno)-3))
+CONCAT(LEFT(fechaNacimiento, 3), REPEAT('*', LEN(TRIM(fechaNacimiento)-3))
+sexo, 
+segmento, 
+nacionalidad,
+rfc, 
+tipoID,
+numeroID,
+cuenta,
+email,
+TDD
+FROM BDClientes.clientes WHERE idCliente = Var_cliente
+
+--SENTENCIA SQL Si el perfil del usuario es RESTRINGIDO
+SELECT
+idCliente, 
+nombre, 
+sexo, 
+segmento, 
+cuenta
+FROM BDClientes.clientes WHERE idCliente = Var_cliente
+
