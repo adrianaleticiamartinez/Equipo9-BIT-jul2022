@@ -1,14 +1,19 @@
 
 package com.springboot.bbva.app.entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String idCliente;
 	
@@ -18,7 +23,7 @@ public class Cliente {
 	
 	private String apellidoMaterno;
 	
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	
 	private String sexo;
 	
@@ -68,11 +73,11 @@ public class Cliente {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
